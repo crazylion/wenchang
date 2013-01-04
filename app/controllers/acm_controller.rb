@@ -5,6 +5,8 @@ class AcmController < ApplicationController
   end
 
   def mail
-    
+    p params[:page]
+   Delayed::Job.enqueue(DelayedRake.new("download",:page=>params[:page])) 
+   render :text=>"ok"
   end
 end
