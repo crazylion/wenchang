@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'anjlab-bootstrap-rails', '>= 2.2', :require => 'bootstrap-rails'
 
 
 # Gems used only for assets and not required
