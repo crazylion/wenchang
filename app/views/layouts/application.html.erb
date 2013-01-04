@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="/">Wenchang</a>
+      <ul class="nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="#">Link</a></li>
+        <li><%=link_to "logout",destroy_user_session_path%></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
 <%= yield %>
-
+</div>
 </body>
 </html>
