@@ -10,6 +10,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'anjlab-bootstrap-rails', '>= 2.2', :require => 'bootstrap-rails'
+gem 'delayed_job_active_record'
 
 
 # Gems used only for assets and not required
