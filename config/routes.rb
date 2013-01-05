@@ -1,5 +1,9 @@
 Wenchang::Application.routes.draw do
-  resources :papers
+  resources :papers do
+    member do
+      get :add_favor
+    end
+  end
 
 
   get "acm/fetch"

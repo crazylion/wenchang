@@ -80,4 +80,15 @@ class PapersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_favor
+    @paper = Paper.find(params[:id])
+    @favor = Favorite.find_by_paper_id(params[:id]);
+    unless @favor.presence
+      favorite = @paper.build_favorites
+    end
+    
+  end
+
+
 end
