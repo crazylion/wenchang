@@ -82,11 +82,11 @@ class PapersController < ApplicationController
   end
 
   def add_favor
-    @paper = Paper.find(params[:id])
-    @favor = Favorite.find_by_paper_id(params[:id]);
+    @favor = Favorite.where(:paper_id=>params[:id],:user_id=>current_user.id)
     unless @favor.presence
-      favorite = @paper.build_favorites
+      current_user.favorite_paper<<Paper.find(params[:id])
     end
+    redirect_to :back,:notice=>"add ok"
     
   end
 
