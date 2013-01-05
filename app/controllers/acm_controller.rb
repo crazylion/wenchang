@@ -30,7 +30,7 @@ class AcmController < ApplicationController
             faraday.response :logger                  # log requests to STDOUT
             faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
         end 
-        response =conn.post "/results.cfm",{:query=>term}
+        response =conn.post "/results.cfm",{:query=>keyword}
         doc =Nokogiri::HTML(response.body)
         #  doc =Nokogiri::HTML(open("test.html"))
         # find  published date
