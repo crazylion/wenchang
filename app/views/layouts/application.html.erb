@@ -3,7 +3,6 @@
 <head>
   <title>Wenchang</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,6 +12,7 @@
       <ul class="nav">
         <li class="active"><a href="/">Home</a></li>
         <li><%= link_to "fetch",acm_fetch_path%></li>
+        <li><%= link_to "search",acm_search_path%></li>
         <li><%=link_to "logout",destroy_user_session_path%></li>
       </ul>
     </div>
@@ -20,5 +20,6 @@
   <div class="container">
 <%= yield %>
 </div>
+<%= javascript_include_tag "application" %>
 </body>
 </html>
