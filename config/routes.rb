@@ -1,6 +1,7 @@
 Wenchang::Application.routes.draw do
   get "acm/fetch"
   post "acm/mail"
+  get "acm/search"
 
   get "users/show"
 
