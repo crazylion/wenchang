@@ -1,4 +1,7 @@
 Wenchang::Application.routes.draw do
+  resources :papers
+
+
   get "acm/fetch"
   post "acm/mail"
   get "acm/search"

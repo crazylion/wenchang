@@ -1,0 +1,31 @@
+<h1>Listing papers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Source</th>
+    <th>Link</th>
+    <th>Abstract</th>
+    <th>Published at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @papers.each do |paper| %>
+  <tr>
+    <td><%= paper.name %></td>
+    <td><%= paper.source %></td>
+    <td><%= paper.link %></td>
+    <td><%= paper.abstract %></td>
+    <td><%= paper.published_at %></td>
+    <td><%= link_to 'Show', paper %></td>
+    <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
+    <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Paper', new_paper_path %>
