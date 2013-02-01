@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,6 +14,7 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'nokogiri', :require => "nokogiri"
 gem 'faraday'
+gem 'puma'
 
 
 # Gems used only for assets and not required
