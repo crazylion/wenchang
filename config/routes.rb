@@ -1,7 +1,7 @@
 Wenchang::Application.routes.draw do
   resources :papers do
     member do
-      get :add_favor
+      post :add_favor
     end
   end
 

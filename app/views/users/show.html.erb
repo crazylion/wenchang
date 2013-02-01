@@ -1,1 +1,7 @@
-hi<%=current_user.email%>
+hi<%=current_user.email%> </br>
+<h2>Favorite paper:</h2>
+<ul>
+<% for item in @user.favorite_paper -%>
+  <li><%=link_to(truncate(item.title,:length=>80),"#",{"data-title"=>item.title,"data-content"=>item.abstract,"class"=>"favoritePaper", "rel"=>"tooltip"})%> added at <%=time_ago_in_words(item.created_at)%> ago</li> 
+<% end -%>
+</ul>

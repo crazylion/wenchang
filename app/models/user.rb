@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:omniauthable
-  has_many :favorites
+  has_many :favorites,:order=>"created_at DESC"
   has_many :favorite_paper,:through=>:favorites,:source=>:paper
 
   # Setup accessible (or protected) attributes for your model

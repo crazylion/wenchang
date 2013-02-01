@@ -8,6 +8,9 @@
 
     $searchResult.on("click",".addFavorite",function() {
        var id = $(this).attr("data-id") ;
+       $.post("/papers/"+id+"/add_favor",function() {
+           
+       });
     });
 
     $("#searchBtn").on("click",function() {
@@ -36,5 +39,15 @@
         $("form").submit();
     
     }); 
+
+//     $(".favoritePaper").each(function() {
+//         $(this).popover("show");
+//     });
+    $(".favoritePaper").popover({selector:true}).on("mouseover",function() {
+        $(this).popover('show');
+    }).on("mouseout",function() {
+        $(this).popover('hide');
+        
+    })
     
 })() 
