@@ -40,6 +40,9 @@ class AcmController < ApplicationController
         for a_table in table.xpath("//tr[3]/td/table/tr[3]/td[2]/table/tr/td[2]/table")
             title = a_table.search("tr")[0].search("td/a")[0].text.strip
             link = a_table.search("tr")[0].search("td/a")[0]["href"]
+            match = link.match(/id=(\d+)/)
+            acm_id=nil
+            acm_id = match[1] unless match[1].nil?
             authors =[] 
 
             for author in a_table.search("tr")[0].search("td[1]/div/a")
@@ -53,15 +56,32 @@ class AcmController < ApplicationController
             abstract,keyword = a_table.search("div.abstract2").text.strip.split("...")
             abstract.strip! unless abstract.nil?
             keyword = (keyword.strip)[10...-1] unless keyword.nil?
+            #加到資料庫裡面
+            
+            paper = Paper.find_by_acm_id(acm_id)
+            id=nil
+            if paper.nil?
+              id=Paper.new(:title=>title,
+                        :source=>"acm",
+                        :abstract=>abstract,
+                        :acm_id=>acm_id,
+                        :published_at=>:date,
+                        :link=>link
+                       ).save
+            else
+              id=paper.id
+            end
 
             articles.push({
+                :id=>id,
                 :title=>title,
                 :link=>baseUrl+"/"+link,
                 :authors=>authors, 
                 :date=>date,
                 :publisher => publisher[11..-1],
                 :abstract=> abstract,
-                :keyword => keyword
+                :keyword => keyword,
+                :acm_id=>acm_id
             })
         end
         return articles
